@@ -28,3 +28,33 @@ O projeto visa substituir o processo manual de encontrar um segurança para abri
 4. Acesse o site pelo navegador para gerenciar as saídas.
 
 Contribuições são bem-vindas! Abra uma issue ou envie um pull request.
+
+## TCC - Exit Control System with RFID/NFC
+Description
+This is the capstone project developed by a group for the completion of the technical course in Systems Development. The system was designed to streamline the process of students exiting the motorcycle parking area of a school, using RFID tags for automation and logging.
+
+## Objective
+The project aims to replace the manual process of finding a security guard to open the gate, making the flow faster and more reliable.
+
+## Technologies Used
+- **PHP**: Backend for endpoints and CRUD operations.
+- **Bootstrap**: Responsive frontend for the website.
+- **C++ (Arduino)**: Microcontroller programming.
+- **RC522**: RFID reader for tag scanning.
+- **ESP8266**: Wi-Fi communication between Arduino and the website.
+
+## How It Works
+1. Students bring their RFID tag close to the RC522 reader.
+2. The Arduino, using the ESP8266 module, makes an HTTP request to a PHP endpoint.
+3. The website records the data in the database (user, date, and time) and allows for viewing and managing the logs.
+
+## How to run
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/seu-usuario/tcc
+   
+2. Set up the PHP server and MySQL database.
+3. Upload the code to the Arduino using the Arduino IDE.
+4. Access the website via a browser to manage the exits.
+
+Contributions are welcome! Open an issue or submit a pull request.
