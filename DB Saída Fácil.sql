@@ -1,10 +1,14 @@
+CREATE DATABASE saidafacil;
+USE saidafacil;
+
 CREATE TABLE usuario (
 	id_aluno INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
 	nome TEXT(65535),
 	matricula INT,
 	curso TEXT(65535),
 	telefone VARCHAR(20),
-	email VARCHAR(50)
+	email VARCHAR(50),
+	ativo BINARY
 );
 
 
