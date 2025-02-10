@@ -9,12 +9,13 @@ O projeto visa substituir o processo manual de encontrar um segurança para abri
 ## Tecnologias Utilizadas
 - **PHP**: Backend para os endpoints e CRUD.
 - **Bootstrap**: Frontend responsivo para o site.
-- **C++ (ESP32)**: Programação do microcontrolador.
+- **C++ (Arduino)**: Programação do microcontrolador.
 - **RC522**: Leitor RFID para leitura das tags.
+- **ESP8266**: Comunicação Wi-Fi entre o Arduino e o site.
 
 ## Funcionamento
 1. Os alunos aproximam sua tag RFID do leitor RC522.
-2. O ESP32 faz uma requisição HTTP a um endpoint PHP.
+2. O Arduino, utilizando o módulo ESP8266, faz uma requisição HTTP a um endpoint PHP.
 3. O site registra os dados no banco (usuário, data e hora) e permite a visualização e gerenciamento dos registros.
 
 ## Como Rodar
@@ -38,12 +39,13 @@ The project aims to replace the manual process of finding a security guard to op
 ## Technologies Used
 - **PHP**: Backend for endpoints and CRUD operations.
 - **Bootstrap**: Responsive frontend for the website.
-- **C++ (ESP32)**: Microcontroller programming.
+- **C++ (Arduino)**: Microcontroller programming.
 - **RC522**: RFID reader for tag scanning.
+- **ESP8266**: Wi-Fi communication between Arduino and the website.
 
 ## How It Works
 1. Students bring their RFID tag close to the RC522 reader.
-2. The ESP32 makes an HTTP request to a PHP endpoint.
+2. The Arduino, using the ESP8266 module, makes an HTTP request to a PHP endpoint.
 3. The website records the data in the database (user, date, and time) and allows for viewing and managing the logs.
 
 ## How to run
