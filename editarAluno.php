@@ -2,17 +2,20 @@
 
 <?php
 
+echo '<pre>';
+var_dump($_POST);
+echo '</pre>';
+
     if (isset($_POST['id_aluno']) && !empty($_POST['id_aluno']) &&
         isset($_POST['nome']) && !empty($_POST['nome']) &&
         isset($_POST['matricula']) && !empty($_POST['matricula']) &&
         isset($_POST['curso']) && !empty($_POST['curso']) &&
         isset($_POST['telefone']) && !empty($_POST['telefone']) &&
         isset($_POST['email']) && !empty($_POST['email']) &&
-        isset($_POST['ativo']) && !empty($_POST['ativo'])) 
-        isset($_POST['placa_veiculo']) && !empty($_POST['placa_veiculo']) {
+        isset($_POST['placa_veiculo']) && !empty($_POST['placa_veiculo'])) {
 
             include 'conexao.php';
-            $sql = "UPDATE usuario SET nome = '$_POST[nome]', matricula = '$_POST[matricula]', curso = '$_POST[curso]', telefone = '$_POST[telefone]', email = '$_POST[email]', ativo = '$_POST[ativo]', placa_veiculo = '$_POST[placa_veiculo]' WHERE id_aluno = $_POST[id_aluno]";
+            $sql = "UPDATE usuario SET nome = '$_POST[nome]', matricula = '$_POST[matricula]', curso = '$_POST[curso]', telefone = '$_POST[telefone]', email = '$_POST[email]', placa_veiculo = '$_POST[placa_veiculo]' WHERE id_aluno = $_POST[id_aluno]";
             $resultado = $conexao->query($sql);
             if ($resultado) {
                 //lógica para mensagem de sucesso
@@ -24,18 +27,18 @@
 
     if (isset($_GET['id_aluno']) && !empty($_GET['id_aluno'])) {
         include 'conexao.php';
-        $sql = "SELECT id_aluno, nome, matricula, curso, telefone, email, ativo FROM usuario WHERE id_aluno = $_GET[id_aluno]";
+        $sql = "SELECT id_aluno, nome, matricula, curso, telefone, email, placa_veiculo FROM usuario WHERE id_aluno = $_GET[id_aluno]";
         $resultado = $conexao -> query($sql);
         if ($resultado) {
             if ($resultado -> num_rows > 0) {
                 while ($row = $resultado -> fetch_assoc()) {
-                    $id = $row["id_aluno"];
+                    $id_aluno = $row["id_aluno"];
                     $nome = $row["nome"];
                     $matricula = $row["matricula"];
                     $curso = $row["curso"];
                     $telefone = $row["telefone"];
                     $email = $row["email"];
-                    $ativo = $row["ativo"];
+                    $placa_veiculo = $row["placa_veiculo"];
                 }
             }
             else {
@@ -57,10 +60,10 @@
             <div class="card">
                 <div class="card-header">Editar categoria</div>
                 <div class="card-body">
-                    <form action="editar_usuarios.php?id=<?php echo $id; ?>"method="post">
+                    <form action="editarAluno.php?id=<?php echo $id_aluno; ?>"method="post">
                         <label>Id</label>
                         <br>
-                        <input class="form-control" name="id_aluno" value="<?php echo $id ?>"/>
+                        <input class="form-control" name="id_aluno" value="<?php echo $id_aluno ?>"/>
                         <br>
                         <label>Nome</label>
                         <br>
@@ -82,9 +85,9 @@
                         <br>
                         <input class="form-control" name="email" value="<?php echo $email ?>"/>
                         <br>
-                        <label>Ativo</label>
+                        <label>Placa do Veículo</label>
                         <br>
-                        <input class="form-control" name="ativo" value="<?php echo $ativo ?>"/>
+                        <input class="form-control" name="placa_veiculo" value="<?php echo $placa_veiculo ?>"/>
                         <br>
                         <button type="submit" class='btn btn-success'>Salvar alterações</button>
                     </form>
