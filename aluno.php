@@ -2,7 +2,7 @@
 include "cabecalho.php";
 include "conexao.php";
 $pesquisa = "";
-$sql = "Select u.id_aluno, u.nome, u.matricula, u.curso, u.telefone, u.email, u.placa_veiculo from usuario u ";
+$sql = "Select u.id_aluno, u.nome, u.matricula, u.curso, u.telefone, u.email, u.ativo, u.placa_veiculo from usuario u ";
        
 if( isset($_GET["pesquisa"]) && !empty($pesquisa) )
 {
@@ -70,6 +70,7 @@ $conexao->close();
                                         <th scope="col">Curso</th>
                                         <th scope="col">Telefone</th>
                                         <th scope="col">Email</th>
+                                        <th scope="col">Ativo</th>
                                         <th scope="col">Placa Veículo</th>
                                         <th scope="col">Ações</th>
                                         <th scope="col"></th>
@@ -87,11 +88,19 @@ $conexao->close();
                                     echo "<td>" . $row["curso"] . "</td>";
                                     echo "<td>" . $row["telefone"] . "</td>";
                                     echo "<td>" . $row["email"] . "</td>";
+                                    echo "<td>" . $row["ativo"] . "</td>";
                                     echo "<td>" . $row["placa_veiculo"] . "</td>";
                                     
                                     echo "<td><a href='editarAluno.php?id_aluno=$row[id_aluno]' class='btn btn-primary' >Editar</a>  ";
                                     echo "<a href='excluirAluno.php?id_aluno=$row[id_aluno]' class='btn btn-danger'>Excluir</a> ";
-                                   
+
+                                    if(($row["ativo"]) === "Sim")
+                                    {
+                                        echo "<a href='desativarAluno.php?id_aluno=$row[id_aluno]' class='btn btn-danger'>Desativar</a> ";   
+                                    }else{
+                                        echo "<a href='ativarAluno.php?id_aluno=$row[id_aluno]' class='btn btn-success'>Ativar</a> ";
+                                    }
+                                    echo "</tr>";
                                 }
                             } else {
                                 echo "<tr><td colspan='4'>Nenhum registro encontrado</td></tr>";

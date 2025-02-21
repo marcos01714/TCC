@@ -3,7 +3,7 @@
 <?php
 
 echo '<pre>';
-var_dump($_POST);
+var_dump($_GET);
 echo '</pre>';
 
     if (isset($_POST['id_aluno']) && !empty($_POST['id_aluno']) &&
@@ -12,10 +12,11 @@ echo '</pre>';
         isset($_POST['curso']) && !empty($_POST['curso']) &&
         isset($_POST['telefone']) && !empty($_POST['telefone']) &&
         isset($_POST['email']) && !empty($_POST['email']) &&
+        isset($_POST['ativo']) && !empty($_POST['ativo']) &&
         isset($_POST['placa_veiculo']) && !empty($_POST['placa_veiculo'])) {
 
             include 'conexao.php';
-            $sql = "UPDATE usuario SET nome = '$_POST[nome]', matricula = '$_POST[matricula]', curso = '$_POST[curso]', telefone = '$_POST[telefone]', email = '$_POST[email]', placa_veiculo = '$_POST[placa_veiculo]' WHERE id_aluno = $_POST[id_aluno]";
+            $sql = "UPDATE usuario SET nome = '$_POST[nome]', matricula = '$_POST[matricula]', curso = '$_POST[curso]', telefone = '$_POST[telefone]', email = '$_POST[email]', ativo = '$_POST[ativo]', placa_veiculo = '$_POST[placa_veiculo]' WHERE id_aluno = $_POST[id_aluno]";
             $resultado = $conexao->query($sql);
             if ($resultado) {
                 //lógica para mensagem de sucesso
@@ -27,7 +28,7 @@ echo '</pre>';
 
     if (isset($_GET['id_aluno']) && !empty($_GET['id_aluno'])) {
         include 'conexao.php';
-        $sql = "SELECT id_aluno, nome, matricula, curso, telefone, email, placa_veiculo FROM usuario WHERE id_aluno = $_GET[id_aluno]";
+        $sql = "SELECT id_aluno, nome, matricula, curso, telefone, email, ativo, placa_veiculo FROM usuario WHERE id_aluno = $_GET[id_aluno]";
         $resultado = $conexao -> query($sql);
         if ($resultado) {
             if ($resultado -> num_rows > 0) {
@@ -38,6 +39,7 @@ echo '</pre>';
                     $curso = $row["curso"];
                     $telefone = $row["telefone"];
                     $email = $row["email"];
+                    $ativo = $row["ativo"];
                     $placa_veiculo = $row["placa_veiculo"];
                 }
             }
@@ -79,11 +81,15 @@ echo '</pre>';
                         <br>
                         <label>Telefone</label>
                         <br>
-                        <input class="form-control" name="Telefone" value="<?php echo $telefone ?>"/>
+                        <input class="form-control" name="telefone" value="<?php echo $telefone ?>"/>
                         <br>
                         <label>Email</label>
                         <br>
                         <input class="form-control" name="email" value="<?php echo $email ?>"/>
+                        <br>
+                        <label>Ativo</label>
+                        <br>
+                        <input class="form-control" name="ativo" value="<?php echo $ativo ?>"/>
                         <br>
                         <label>Placa do Veículo</label>
                         <br>

@@ -32,7 +32,7 @@ VALUES
 ('João Silva', 123456, 'Engenharia da Computação', '11987654321', 'joao.silva@exemplo.com', 'Sim'),
 ('Maria Oliveira', 234567, 'Sistemas de Informação', '11976543210', 'maria.oliveira@exemplo.com', 'Sim'),
 ('Pedro Santos', 345678, 'Ciência da Computação', '11965432109', 'pedro.santos@exemplo.com', 'Sim'),
-('Ana Costa', 456789, 'Engenharia Elétrica', '11954321098', 'ana.costa@exemplo.com', 'Não');
+('Ana Costa', 456789, 'Engenharia Elétrica', '11954321098', 'ana.costa@exemplo.com', 'Sim');
 
 -- Inserção de tags NFC
 INSERT INTO tag_nfc (codigo_tag, id_aluno_fk)

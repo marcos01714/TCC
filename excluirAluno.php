@@ -1,10 +1,14 @@
 <?php
 
-if( !empty($_GET['Id']) && isset( $_GET['Id'] ) )
+if( !empty($_GET['id_aluno']) && isset( $_GET['id_aluno'] ) )
 {
     //Logica da exclusão
     include 'conexao.php';
-    $sql = "Delete from usuario where Id = $_GET[Id]";
+    $sql = "
+    DELETE FROM tag_nfc WHERE id_aluno_fk = $_GET[id_aluno];
+    DELETE FROM saidas WHERE id_aluno_fk = $_GET[id_aluno];
+    DELETE FROM usuario WHERE id_aluno = $_GET[id_aluno];
+";
     $resultado = $conexao->query($sql);
     if($resultado)
     {
