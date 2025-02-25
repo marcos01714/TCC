@@ -21,13 +21,20 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="aluno.php">Alunos</a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="suporte.php">Suporte</a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="logoff.php">Log Off</a>
+                    </li>
                 </ul>
+                
             </div>
         </div>
     </nav>

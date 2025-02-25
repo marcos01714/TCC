@@ -2,9 +2,9 @@
 
 <?php
 
-echo '<pre>';
-var_dump($_GET);
-echo '</pre>';
+// echo '<pre>';
+// var_dump($_GET);
+// echo '</pre>';
 
     if (isset($_POST['id_aluno']) && !empty($_POST['id_aluno']) &&
         isset($_POST['nome']) && !empty($_POST['nome']) &&
@@ -13,20 +13,28 @@ echo '</pre>';
         isset($_POST['telefone']) && !empty($_POST['telefone']) &&
         isset($_POST['email']) && !empty($_POST['email']) &&
         isset($_POST['ativo']) && !empty($_POST['ativo']) &&
-        isset($_POST['placa_veiculo']) && !empty($_POST['placa_veiculo'])) {
+        isset($_POST['placa_veiculo']) && !empty($_POST['placa_veiculo'])) 
+        {
 
             include 'conexao.php';
             $sql = "UPDATE usuario SET nome = '$_POST[nome]', matricula = '$_POST[matricula]', curso = '$_POST[curso]', telefone = '$_POST[telefone]', email = '$_POST[email]', ativo = '$_POST[ativo]', placa_veiculo = '$_POST[placa_veiculo]' WHERE id_aluno = $_POST[id_aluno]";
+            
+            
             $resultado = $conexao->query($sql);
             if ($resultado) {
                 //lógica para mensagem de sucesso
+                // echo '<pre>';
+                // var_dump($resultado);
+                // echo '</pre>';
+               // exit();
             }                                    
             else {
                 //caso o update dê false
             }    
         } 
-
-    if (isset($_GET['id_aluno']) && !empty($_GET['id_aluno'])) {
+    
+    if (isset($_GET['id_aluno']) && !empty($_GET['id_aluno']))
+    {
         include 'conexao.php';
         $sql = "SELECT id_aluno, nome, matricula, curso, telefone, email, ativo, placa_veiculo FROM usuario WHERE id_aluno = $_GET[id_aluno]";
         $resultado = $conexao -> query($sql);
@@ -62,7 +70,7 @@ echo '</pre>';
             <div class="card">
                 <div class="card-header">Editar categoria</div>
                 <div class="card-body">
-                    <form action="editarAluno.php?id=<?php echo $id_aluno; ?>"method="post">
+                    <form action="editarAluno.php?id_aluno=<?php echo $id_aluno; ?>" method="post">
                         <label>Id</label>
                         <br>
                         <input class="form-control" name="id_aluno" value="<?php echo $id_aluno ?>"/>

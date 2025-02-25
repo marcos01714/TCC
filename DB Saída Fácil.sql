@@ -26,6 +26,12 @@ CREATE TABLE saidas (
     FOREIGN KEY (id_aluno_fk) REFERENCES usuario(id_aluno)
 );
 
+ CREATE TABLE admin (
+        ID INT PRIMARY KEY AUTO_INCREMENT,
+        username VARCHAR(50) NOT NULL,
+        password VARCHAR(80) NOT NULL
+);
+
 -- Inserção de usuários
 INSERT INTO usuario (nome, matricula, curso, telefone, email, ativo) 
 VALUES 
@@ -49,3 +55,8 @@ VALUES
 (2, '2025-02-10 09:00:00'), -- Maria Oliveira
 (3, '2025-02-10 09:15:00'), -- Pedro Santos
 (4, '2025-02-10 10:00:00'); -- Ana Costa
+
+-- Inserção dos admin
+INSERT INTO admin (username, password) 
+VALUES 
+('admin1', 'senhasadmin1');

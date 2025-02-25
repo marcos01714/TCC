@@ -1,4 +1,15 @@
 <?php 
+session_start(); 
+
+if (!isset($_SESSION["Logado"]) || $_SESSION["Logado"] !== true){
+    header("Location: login.php?erro=Você precisa estar logado");
+    exit();
+}
+
+?>
+
+<?php 
+
 include "cabecalho.php";
 include "conexao.php";
 $pesquisa = "";
@@ -92,7 +103,6 @@ $conexao->close();
                                     echo "<td>" . $row["placa_veiculo"] . "</td>";
                                     
                                     echo "<td><a href='editarAluno.php?id_aluno=$row[id_aluno]' class='btn btn-primary' >Editar</a>  ";
-                                    echo "<a href='excluirAluno.php?id_aluno=$row[id_aluno]' class='btn btn-danger'>Excluir</a> ";
 
                                     if(($row["ativo"]) === "Sim")
                                     {
