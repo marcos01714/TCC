@@ -27,7 +27,7 @@ CREATE TABLE saidas (
 );
 
  CREATE TABLE admin (
-        ID INT PRIMARY KEY AUTO_INCREMENT,
+        id_admin INT PRIMARY KEY AUTO_INCREMENT,
         username VARCHAR(50) NOT NULL,
         password VARCHAR(80) NOT NULL
 );
@@ -59,4 +59,4 @@ VALUES
 -- Inserção dos admin
 INSERT INTO admin (username, password) 
 VALUES 
-('admin1', 'senhasadmin1');
+('admin', 'admin');

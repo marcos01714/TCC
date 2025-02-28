@@ -15,14 +15,14 @@ include "conexao.php";
 $pesquisa = "";
 $sql = "Select u.id_aluno, u.nome, u.matricula, u.curso, u.telefone, u.email, u.ativo, u.placa_veiculo from usuario u ";
        
-if( isset($_GET["pesquisa"]) && !empty($pesquisa) )
+if( isset($_GET["pesquisa"]) && !empty($_GET["pesquisa"]) )
 {
     $pesquisa = $_GET["pesquisa"];
-    $sql .=" WHERE u.id_aluno like '%$pesquisa%' order by u.id_aluno desc";
+    $sql .= " WHERE u.nome LIKE '%$pesquisa%' ORDER BY u.id_aluno DESC";
 }
 else
 {
-    $sql .=" order by id_aluno desc";
+    $sql .= " ORDER BY id_aluno DESC";
 }
 
 $resultado = $conexao->query($sql);
@@ -42,7 +42,7 @@ $conexao->close();
 <div class="row">
     <div class="col-12">
         <div class="card custom-card"> <!-- Aplica a classe personalizada para aumentar a largura -->
-            <div class="card-header">
+            <div class="card-header text-white" style="background-color: #385263;">
                 Lista de Usuários
             </div>
             <div class="card-body custom-card-body"> <!-- Aplica a classe personalizada para aumentar o padding -->

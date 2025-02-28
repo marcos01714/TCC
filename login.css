@@ -10,7 +10,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f3f3f3;
+    background-color: #2c2a2a;
 }
 
 .login-container {
@@ -50,7 +50,7 @@ input[type="password"] {
 
 button {
     padding: 10px;
-    background-color: #4CAF50;
+    background-color: #c10001;
     color: white;
     border: none;
     border-radius: 5px;

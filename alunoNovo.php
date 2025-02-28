@@ -50,7 +50,7 @@ $senha = "";
     <div class="col-4"></div>
     <div class="col-4">
         <div class="card">
-            <div class="card-header">
+        <div class="card-header text-white" style="background-color: #385263;">
                 Cadastrar novo aluno
             </div>
             <div class="card-body">
