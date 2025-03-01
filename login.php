@@ -7,9 +7,9 @@
     <title>Login</title>
     <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="login.css">
-  
 </head>
 <body>
+    <!-- A div do login-container vai ter a imagem de fundo -->
     <div class="login-container">
         <h2>Saída Fácil</h2>
         <form action="autenticar.php" method="POST">
@@ -28,7 +28,6 @@
                     echo $_GET["erro"];
                     echo "</div>";
                 }
-
             ?>
         </form>
     </div>

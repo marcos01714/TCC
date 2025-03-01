@@ -6,7 +6,7 @@ if( (isset($_POST["username"]) && !empty($_POST["username"]) )
     && (isset($_POST["password"]) && !empty($_POST["password"]) )
 ){
 
-    $sql = "Select Id from admin where username = '$_POST[username]' AND password = '$_POST[password]'";
+    $sql = "Select id_admin from admin where username = '$_POST[username]' AND password = '$_POST[password]'";
     $resultado = $conexao->query($sql);
 
     if($resultado->num_rows > 0)

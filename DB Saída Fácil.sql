@@ -33,12 +33,12 @@ CREATE TABLE saidas (
 );
 
 -- Inserção de usuários
-INSERT INTO usuario (nome, matricula, curso, telefone, email, ativo) 
+INSERT INTO usuario (nome, matricula, curso, telefone, email, ativo, placa_veiculo) 
 VALUES 
-('João Silva', 123456, 'Engenharia da Computação', '11987654321', 'joao.silva@exemplo.com', 'Sim'),
-('Maria Oliveira', 234567, 'Sistemas de Informação', '11976543210', 'maria.oliveira@exemplo.com', 'Sim'),
-('Pedro Santos', 345678, 'Ciência da Computação', '11965432109', 'pedro.santos@exemplo.com', 'Sim'),
-('Ana Costa', 456789, 'Engenharia Elétrica', '11954321098', 'ana.costa@exemplo.com', 'Sim');
+('João Silva', 123456, 'Engenharia da Computação', '11987654321', 'joao.silva@exemplo.com', 'Sim', 'ABC-1234'),
+('Maria Oliveira', 234567, 'Sistemas de Informação', '11976543210', 'maria.oliveira@exemplo.com', 'Sim', 'XYZ1A23'),
+('Pedro Santos', 345678, 'Ciência da Computação', '11965432109', 'pedro.santos@exemplo.com', 'Sim', 'JKT-9876'),
+('Ana Costa', 456789, 'Engenharia Elétrica', '11954321098', 'ana.costa@exemplo.com', 'Sim', 'DEF9B45');
 
 -- Inserção de tags NFC
 INSERT INTO tag_nfc (codigo_tag, id_aluno_fk)
