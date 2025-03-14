@@ -2,29 +2,76 @@
 
 <?php include "cabecalho.php"; 
 
-if( isset($_POST["Login"])  && isset($_POST["Senha"]) )
+if( isset($_POST['id_aluno']) && !empty($_POST['id_aluno']) &&
+    isset($_POST['nome']) && !empty($_POST['nome']) &&
+    isset($_POST['matricula']) && !empty($_POST['matricula']) &&
+    isset($_POST['curso']) && !empty($_POST['curso']) &&
+    isset($_POST['telefone']) && !empty($_POST['telefone']) &&
+    isset($_POST['email']) && !empty($_POST['email']) &&
+    isset($_POST['ativo']) && !empty($_POST['ativo']) &&
+    isset($_POST['placa_veiculo']) && !empty($_POST['placa_veiculo']) )
 {
 
-    if( empty($_POST["Login"]) )
+   if(empty($_POST["nome"]) )
     {
         echo "<br>
             <div class='alert alert-danger mt-2'>
-                Campo Login não pode estar vazio
+                 Campo nome não pode estar vazio
             </div>";
     }
-    else if(empty($_POST["Senha"]) )
+    else if(empty($_POST["matricula"]) )
     {
         echo "<br>
             <div class='alert alert-danger mt-2'>
-                 Campo senha não pode estar vazio
+                 Campo matrícula não pode estar vazio
+            </div>";
+    }
+    else if(empty($_POST["curso"]) )
+    {
+        echo "<br>
+            <div class='alert alert-danger mt-2'>
+                 Campo curso não pode estar vazio
+            </div>";
+    }
+    else if(empty($_POST["telefone"]) )
+    {
+        echo "<br>
+            <div class='alert alert-danger mt-2'>
+                 Campo telefone não pode estar vazio
+            </div>";
+    }
+    else if(empty($_POST["email"]) )
+    {
+        echo "<br>
+            <div class='alert alert-danger mt-2'>
+                 Campo email não pode estar vazio
+            </div>";
+    }
+    else if(empty($_POST["ativo"]) )
+    {
+        echo "<br>
+            <div class='alert alert-danger mt-2'>
+                 Campo ativo não pode estar vazio
+            </div>";
+    }
+    else if(empty($_POST["placa_veiculo"]) )
+    {
+        echo "<br>
+            <div class='alert alert-danger mt-2'>
+                 Campo placa do veículo não pode estar vazio
             </div>";
     }
     else
     {
         include "conexao.php";
-        $login = $_POST["Login"];
-        $senha = $_POST["Senha"];
-        $query = "INSERT INTO usuario (Login, Senha, Ativo) VALUES ( '$_POST[Login]', '$_POST[Senha]' , 1 ) ";
+        $nome = $row["nome"];
+        $matricula = $row["matricula"];
+        $curso = $row["curso"];
+        $telefone = $row["telefone"];
+        $email = $row["email"];
+        $ativo = $row["ativo"];
+        $placa_veiculo = $row["placa_veiculo"];
+        $query = "INSERT INTO usuario (nome, matricula, curso, telefone, email, ativo, placa_veiculo) VALUES ( '$_POST[nome]', '$_POST[matricula]', '$_POST[curso]', '$_POST[telefone]', '$_POST[email]', '$_POST[ativo]', '$_POST[placa_veiculo]') ";
         $resultado = $conexao->query($query);
         if($resultado)
         {
@@ -38,12 +85,18 @@ if( isset($_POST["Login"])  && isset($_POST["Senha"]) )
                       </div>" ;
             }
         }
-        $login = "";
-        $senha = "";
        
 }
-$login = "";
-$senha = "";
+else
+{
+$nome = "";
+$matricula = "";
+$curso = "";
+$telefone = "";
+$email = "";
+$ativo = "";
+$placa_veiculo = "";
+}
 ?>
 <br>
 <div class="row">
@@ -54,12 +107,27 @@ $senha = "";
                 Cadastrar novo aluno
             </div>
             <div class="card-body">
-                <form action="novo_aluno.php" method="post">
-                    <label>Login</label>
-                    <input class="form-control" type="text" name="Login" value="<?php echo $login; ?>" />
+                <form action="alunoNovo.php" method="post">
+                    <label>Nome</label>
+                    <input class="form-control" type="text" name="nome" value="<?php echo $nome; ?>" />
                     <br>
-                    <label>Senha</label>
-                    <input class="form-control" type="password" name="Senha" value="<?php echo $senha; ?>" />
+                    <label>Matrícula</label>
+                    <input class="form-control" type="text" name="matricula" value="<?php echo $matricula; ?>" />
+                    <br>
+                    <label>Curso</label>
+                    <input class="form-control" type="text" name="curso" value="<?php echo $curso; ?>" />
+                    <br>
+                    <label>Telefone</label>
+                    <input class="form-control" type="text" name="telefone" value="<?php echo $telefone; ?>" />
+                    <br>
+                    <label>Email</label>
+                    <input class="form-control" type="text" name="email" value="<?php echo $email; ?>" />
+                    <br>
+                    <label>Ativo</label>
+                    <input class="form-control" type="text" name="ativo" value="<?php echo $ativo; ?>" />
+                    <br>
+                    <label>Placa do Veículo</label>
+                    <input class="form-control" type="text" name="placa_veiculo" value="<?php echo $placa_veiculo; ?>" />
                     <br>
                     
                     <button type='submit' class='btn btn-success'>
