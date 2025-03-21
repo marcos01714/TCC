@@ -18,12 +18,13 @@ $sql = "Select u.id_aluno, u.nome, u.matricula, u.curso, u.telefone, u.email, u.
 if( isset($_GET["pesquisa"]) && !empty($_GET["pesquisa"]) )
 {
     $pesquisa = $_GET["pesquisa"];
-    $sql .= " WHERE u.nome LIKE '%$pesquisa%' ORDER BY u.id_aluno DESC";
+    $sql .= " WHERE u.nome LIKE '%$pesquisa%' OR u.placa_veiculo LIKE '%$pesquisa%' ORDER BY u.id_aluno DESC";
 }
 else
 {
     $sql .= " ORDER BY id_aluno DESC";
 }
+
 
 $resultado = $conexao->query($sql);
 $conexao->close();

@@ -2,8 +2,7 @@
 
 <?php include "cabecalho.php"; 
 
-if( isset($_POST['id_aluno']) && !empty($_POST['id_aluno']) &&
-    isset($_POST['nome']) && !empty($_POST['nome']) &&
+if( isset($_POST['nome']) && !empty($_POST['nome']) &&
     isset($_POST['matricula']) && !empty($_POST['matricula']) &&
     isset($_POST['curso']) && !empty($_POST['curso']) &&
     isset($_POST['telefone']) && !empty($_POST['telefone']) &&
@@ -124,7 +123,7 @@ $placa_veiculo = "";
                     <input class="form-control" type="text" name="email" value="<?php echo $email; ?>" />
                     <br>
                     <label>Ativo</label>
-                    <input class="form-control" type="text" name="ativo" value="<?php echo $ativo; ?>" />
+                    <input class="form-control" type="text" name="ativo" value="Sim<?php echo $ativo; ?>" readonly  />
                     <br>
                     <label>Placa do Veículo</label>
                     <input class="form-control" type="text" name="placa_veiculo" value="<?php echo $placa_veiculo; ?>" />
