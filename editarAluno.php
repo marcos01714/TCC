@@ -68,7 +68,7 @@
     <div class="col-4"></div>
         <div class="col-4">
             <div class="card">
-                <div class="card-header">Editar categoria</div>
+                <div class="card-header text-white" style="background-color: #385263;">Editar categoria</div>
                 <div class="card-body">
                     <form action="editarAluno.php?id_aluno=<?php echo $id_aluno; ?>" method="post">
                         <label>Id</label>
